@@ -1,0 +1,60 @@
+{
+    // Pylance analysis
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.diagnosticMode": "workspace",
+    // Python linting
+    "pylint.args": [
+        "--disable=R0903,R0911,R0913,R0914,C0114,C0115,C0116,C0200,C0301,W0212,W1202,W1203,E0110,E1101,I1101",
+        "--ignore=site-packages",
+        "--load-plugins pylint_pydantic",
+        "--extension-pkg-whitelist='pydantic'"
+    ],
+    "pylint.severity": {
+        "refactor": "Information",
+        "convention": "Information"
+    },
+    // Mypy args
+    "mypy.configFile": "/workspaces/Leetcode/src/mypy.ini",
+    "editor.formatOnSave": true,
+    // Python custom
+    "python.languageServer": "Pylance",
+    // Python code settings
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.unusedImports": "explicit"
+    },
+    // Spelling
+    "cSpell.customDictionaries": {
+        "Dictionary": {
+            "name": "dictionary",
+            "path": "${workspaceFolder}/.cspell/dictionary.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    },
+    // Python args
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    // Python tests
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "python.testing.cwd": "${workspaceFolder}",
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    // Other
+    "python.analysis.ignore": [
+        "**/__init__.py"
+    ],
+    "python.analysis.importFormat": "absolute",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "test_*.py"
+    ],
+}

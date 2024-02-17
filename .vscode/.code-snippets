@@ -1,0 +1,13 @@
+{
+	"CLASS": {
+		"prefix": "initClass",
+		"body": [
+			"",
+			"class ${1:${TM_FILENAME_BASE/(^|[_-])([a-zA-Z])/${2:/capitalize}/g}}:",
+			"\tdef __init__(self) -> None:",
+			"\t\tpass"
+		],
+		"description": "Generate class"
+	}
+}
+
