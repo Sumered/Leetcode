@@ -14,7 +14,7 @@
         "convention": "Information"
     },
     // Mypy args
-    "mypy.configFile": "/workspaces/Leetcode/src/mypy.ini",
+    "mypy.configFile": "./src/mypy.ini",
     "editor.formatOnSave": true,
     // Python custom
     "python.languageServer": "Pylance",
