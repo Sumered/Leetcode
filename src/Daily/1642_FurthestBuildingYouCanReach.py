@@ -1,3 +1,4 @@
+# type: ignore
 from sortedcontainers import SortedList
 
 
@@ -12,7 +13,7 @@ class Solution:
             difference = height - previous_height
 
             if len(largest) == ladders:
-                if ladders != 0 and largest[-1] < difference:  # type: ignore
+                if ladders != 0 and largest[-1] < difference:
                     smaller = largest.pop()
                     largest.add(difference)
                     sum_of_rest += smaller
