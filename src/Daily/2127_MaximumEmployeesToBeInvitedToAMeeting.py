@@ -70,3 +70,7 @@ class Solution:
                 visited[index] = True
 
         return neighbors, pairs
+
+
+# Explanation:
+# https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting/solutions/4753714/explanation-step-by-step-dividing-problem-into-sub-problems-python-graphs/
