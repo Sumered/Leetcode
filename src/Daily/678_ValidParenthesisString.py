@@ -2,6 +2,37 @@ from functools import cache
 
 class Solution:
     def checkValidString(self, s: str) -> bool:
+        dp = [[[False for _ in range(len(s) + 1)] for _ in range(len(s) + 1)] for _ in range(len(s) + 1)]
+        dp[0][0][0] = True
+
+        for index in range(len(s)):
+            character = s[index]
+            dp_index = index + 1
+            if character == "(":
+                for left_index in range(len(s)):
+                    for right_index in range(len(s)):
+                        if dp[dp_index - 1][left_index][right_index]:
+                            dp[dp_index][left_index + 1][right_index] = True
+            elif character == ")":
+                for left_index in range(len(s)):
+                    for right_index in range(len(s)):
+                        if dp[dp_index - 1][left_index][right_index] and left_index > right_index:
+                            dp[dp_index][left_index][right_index + 1] = True
+            else:
+                for left_index in range(len(s)):
+                    for right_index in range(len(s)):
+                        if dp[dp_index - 1][left_index][right_index]:
+                            dp[dp_index][left_index][right_index] = True
+                            dp[dp_index][left_index + 1][right_index] = True
+                            if left_index > right_index:
+                                dp[dp_index][left_index][right_index + 1] = True
+                            
+        for equal_index in range(len(s)):
+            if dp[len(s)][equal_index][equal_index]:
+                return True
+        return False
+
+    def checkValidString_recurrent(self, s: str) -> bool:
         return self.__check_recurrent(s, 0, 0, 0)
 
     @cache
